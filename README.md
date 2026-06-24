@@ -88,6 +88,29 @@ Fluxo: Controller → Service → Domain → Repository → Database
 
 ---
 
+# 🧠 Architecture Decisions
+
+## Por que NestJS?
+- Estrutura modular
+- Suporte nativo a TypeScript
+- Fácil integração com Swagger
+
+## Por que Modular Monolith?
+- Simplicidade de deploy
+- Menor complexidade inicial
+- Preparado para futura evolução
+
+## Por que DDD (lightweight)?
+- Melhor organização do domínio
+- Clareza nas regras de negócio
+- Facilidade de manutenção
+
+## Por que não Microservices agora?
+- Overhead desnecessário no estágio atual
+- Complexidade de comunicação
+
+---
+
 # 🗂️ Estrutura do Projeto
 
 src/
@@ -115,9 +138,11 @@ Quote
 - id
 - text
 - context
-- author_id
-- topic_id
+- author_id (FK)
+- topic_id (FK)
 - status (draft | approved | delivered)
+- createdAt
+- updatedAt
 
 Author
 - id
@@ -149,10 +174,23 @@ Response:
 
 ## Define os interesses do usuário.
 POST /api/v1/preferences
-Response:
+Request:
 {
   "topics": ["disciplina", "filosofia"]
 }
+
+Response:
+{
+  "success": true
+}
+
+---
+
+# ⚙️ Regras de Negócio (API)
+
+- Uma única frase deve ser entregue por dia
+- Frases não devem se repetir antes de esgotar o pool
+- A seleção deve considerar os interesses do usuário
 
 ---
 
