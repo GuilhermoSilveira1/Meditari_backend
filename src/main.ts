@@ -17,13 +17,15 @@ async function bootstrap() {
   // Swagger
   const config = new DocumentBuilder()
     .setTitle('Meditari API')
-    .setDescription('Documentação da API')
+    .setDescription('API para frases diárias')
     .setVersion('1.0')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
 
-  SwaggerModule.setup('docs', app, document);
+  SwaggerModule.setup('api', app, document);
+
+  app.setGlobalPrefix('api/v1')
 
   await app.listen(3000);
 }
