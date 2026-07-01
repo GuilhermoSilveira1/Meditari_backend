@@ -7,7 +7,7 @@ export class Quote {
     private _quote: string
     private _context: string
     private _authorId: string
-    private _topicId: string
+    private _themeId: string
     private _status: QuoteStatus
     private _createdAt: Date
     private _updatedAt: Date
@@ -19,7 +19,7 @@ export class Quote {
         quote: string
         context: string
         authorId: string
-        topicId: string
+        themeId: string
         status?: QuoteStatus
         createdAt?: Date
         updatedAt?: Date
@@ -30,7 +30,7 @@ export class Quote {
         this._quote = props.quote
         this._context = props.context
         this._authorId = props.authorId
-        this._topicId = props.topicId
+        this._themeId = props.themeId
         this._status = props.status ?? 'draft'
         this._createdAt = props.createdAt ?? new Date
         this._updatedAt = props.updatedAt ?? new Date
@@ -55,8 +55,8 @@ export class Quote {
         return this.authorId
     }
 
-    get topicId() {
-        return this.topicId
+    get themeId() {
+        return this.themeId
     }
 
     get status() {
@@ -111,7 +111,7 @@ export class Quote {
             throw new Error('Quote must have an author')
         }
 
-        if (!this.topicId) {
+        if (!this.themeId) {
             throw new Error('Quote must have a topic')
         }
     }
