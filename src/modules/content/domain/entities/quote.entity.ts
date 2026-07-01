@@ -7,7 +7,7 @@ export class Quote {
     private _quote: string
     private _context: string
     private _authorId: string
-    private _themeId: string
+    private _topicId: string
     private _status: QuoteStatus
     private _createdAt: Date
     private _updatedAt: Date
@@ -19,7 +19,7 @@ export class Quote {
         quote: string
         context: string
         authorId: string
-        themeId: string
+        topicId: string
         status?: QuoteStatus
         createdAt?: Date
         updatedAt?: Date
@@ -30,7 +30,7 @@ export class Quote {
         this._quote = props.quote
         this._context = props.context
         this._authorId = props.authorId
-        this._themeId = props.themeId
+        this._topicId = props.topicId
         this._status = props.status ?? 'draft'
         this._createdAt = props.createdAt ?? new Date
         this._updatedAt = props.updatedAt ?? new Date
@@ -40,35 +40,35 @@ export class Quote {
 
     // Getters
     get id() {
-        return this.id
+        return this._id
     }
 
     get quote() {
-        return this.quote
+        return this._quote
     }
 
     get context() {
-        return this.context
+        return this._context
     }
 
     get authorId() {
-        return this.authorId
+        return this._authorId
     }
 
-    get themeId() {
-        return this.themeId
+    get topicId() {
+        return this._topicId
     }
 
     get status() {
-        return this.status
+        return this._status
     }
 
     get createdAt() {
-        return this.createdAt
+        return this._createdAt
     }
 
     get updatedAt() {
-        return this.updatedAt
+        return this._updatedAt
     }
 
     // Regras de negócio (state machine)
@@ -111,7 +111,7 @@ export class Quote {
             throw new Error('Quote must have an author')
         }
 
-        if (!this.themeId) {
+        if (!this.topicId) {
             throw new Error('Quote must have a topic')
         }
     }
