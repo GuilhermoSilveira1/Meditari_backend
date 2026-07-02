@@ -93,7 +93,7 @@ export class Author {
 
     // Regras internas
     private validate() {
-        if (this._name || this._name.length < 5) {
+        if (!this._name || this._name.length < 5) {
             throw new Error('Name length must have at least 5 letters')
         }
 
