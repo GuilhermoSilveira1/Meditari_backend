@@ -8,6 +8,7 @@ export class Quote {
     private _context: string
     private _authorId: string
     private _topicId: string
+    private _subtopicId: string
     private _status: QuoteStatus
     private _createdAt: Date
     private _updatedAt: Date
@@ -20,6 +21,7 @@ export class Quote {
         context: string
         authorId: string
         topicId: string
+        subtopicId?: string
         status?: QuoteStatus
         createdAt?: Date
         updatedAt?: Date
@@ -31,6 +33,7 @@ export class Quote {
         this._context = props.context
         this._authorId = props.authorId
         this._topicId = props.topicId
+        this._subtopicId = props.subtopicId ?? 'tbd'
         this._status = props.status ?? 'draft'
         this._createdAt = props.createdAt ?? new Date
         this._updatedAt = props.updatedAt ?? new Date
@@ -57,6 +60,10 @@ export class Quote {
 
     get topicId() {
         return this._topicId
+    }
+    
+    get subtopicId() {
+        return this._subtopicId
     }
 
     get status() {
