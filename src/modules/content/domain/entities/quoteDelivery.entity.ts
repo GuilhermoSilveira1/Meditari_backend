@@ -42,39 +42,39 @@ export class Quote {
     }
 
     // Getters
-    getId() {
+    get id() {
         return this._id
     }
 
-    getQuote() {
+    get quote() {
         return this._quote
     }
 
-    getContext() {
+    get context() {
         return this._context
     }
 
-    getAuthorId() {
+    get authorId() {
         return this._authorId
     }
 
-    getTopicId() {
+    get topicId() {
         return this._topicId
     }
     
-    getSubtopicId() {
+    get subtopicId() {
         return this._subtopicId
     }
 
-    getStatus() {
+    get status() {
         return this._status
     }
 
-    getCreatedAt() {
+    get createdAt() {
         return this._createdAt
     }
 
-    getUpdatedAt() {
+    get updatedAt() {
         return this._updatedAt
     }
 
@@ -110,15 +110,15 @@ export class Quote {
 
     // Regras Internas
     private validate() {
-        if (!this._quote || this._quote.length < 5) {
+        if (!this._quote || this.quote.length < 5) {
             throw new Error('Quote text must have at least 5 characters')
         }
 
-        if (!this._authorId) {
+        if (!this.authorId) {
             throw new Error('Quote must have an author')
         }
 
-        if (!this._topicId) {
+        if (!this.topicId) {
             throw new Error('Quote must have a topic')
         }
     }
