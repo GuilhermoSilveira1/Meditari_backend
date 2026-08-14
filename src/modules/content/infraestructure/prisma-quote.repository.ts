@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Quote } from '../domain/entities/quote.entity';
 import { QuoteRepository } from '../domain/repositories/quote.repository';
 
-@Injectable
+@Injectable()
 export class PrismaQuoteRepository implements QuoteRepository{
     constructor(
         private readonly prisma: PrismaService,
@@ -11,7 +11,9 @@ export class PrismaQuoteRepository implements QuoteRepository{
     async getQuote(topic: string): Promise<Quote | null> {
         const quote = 
             await this.prisma.quote.findMany({
-                where: {topic}
+                where: {
+                    topicId: topic
+                }
             })
         if (!quote) {
             return null
@@ -24,14 +26,14 @@ export class PrismaQuoteRepository implements QuoteRepository{
         await this.prisma.quote.create({
             data: {
                 id: quote.getId(),
-                quote: quote.getQuote,
-                context: quote.getContext,
-                authorId: quote.getAuthorId,
-                topicId: quote.getTopicId,
-                subtopicId: quote.getSubtopicId,
-                status: quote.getStatus,
-                createdAt: quote.getCreatedAt,
-                updatedAt: quote.getUpdatedAt
+                quote: quote.getQuote(),
+                context: quote.getContext(),
+                authorId: quote.getAuthorId(),
+                topicId: quote.getTopicId(),
+                subtopicId: quote.getSubtopicId(),
+                status: quote.getStatus(),
+                createdAt: quote.getCreatedAt(),
+                updatedAt: quote.getUpdatedAt()
             }
         })
     }

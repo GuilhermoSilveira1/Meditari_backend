@@ -1,11 +1,15 @@
 import { Quote } from '../entities/quote.entity'
 
 export abstract class QuoteRepository {
-  abstract getQuote(
-    topic: string,
+  abstract findById(
+    id: string,
   ): Promise<Quote | null>;
 
+  abstract findByTopic(
+      topicId: string,
+  ): Promise<Quote[]>;
+
   abstract save(
-    quote: Quote,
+      quote: Quote,
   ): Promise<void>;
 }
