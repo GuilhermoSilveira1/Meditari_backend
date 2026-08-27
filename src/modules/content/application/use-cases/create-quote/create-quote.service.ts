@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Quote } from 'src/modules/content/domain/entities/quote.entity';
-import { QuoteRepository } from 'src/modules/content/domain/repositories/quote.repository';
+import { Quote } from '../../../domain/entities/quote.entity';
+import { QuoteRepository } from '../../../domain/repositories/quote.repository';
 
 // Enums do status
 export type QuoteStatus = 'draft' | 'approved' | 'delivered'
