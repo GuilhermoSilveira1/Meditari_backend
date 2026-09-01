@@ -1,16 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateQuoteService } from '../../application/use-cases/create-quote/create-quote.service';
 import { QuoteRepository } from '../../domain/repositories/quote.repository';
-import { QuoteStatus } from '../../domain/entities/quote.entity';
-
-export class CreateQuoteDto {
-  quote!: string;
-  context!: string;
-  authorId!: string;
-  topicId!: string;
-  subTopicId!: string;
-  status!: QuoteStatus;
-}
+import { CreateQuoteDto } from '../../application/dto/crete-quote-dto';
 
 @Controller('quotes')
 export class QuoteController {
