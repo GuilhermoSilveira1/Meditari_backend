@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Quote } from '../../../domain/entities/quote.entity';
 import { QuoteRepository } from '../../../domain/repositories/quote.repository';
+import { randomUUID } from 'node:crypto';
 
 // Enums do status
-export type QuoteStatus = 'draft' | 'approved' | 'delivered'
-
 @Injectable()
 export class CreateQuoteService {
     constructor (
@@ -12,51 +11,24 @@ export class CreateQuoteService {
     ) {}
 
     async createNewQuote(data: {
-            quote: string,
-            context: string,
-            authorId: string
-            topicId: string,
-            subTopicId: string,
-            status: QuoteStatus
-        }) {
-            // Criando as constantes e validando os dados
-            const quoteId = 'no idea'
-            const quoteText = data.quote
-            const context = data.context
-            const authorId = data.authorId
-            const topicId = data.topicId
-            const subtopicId = data.subTopicId
-            const status = data.status
-            const createdAt = new Date()
-            const updatedAt = new Date()
+        quote: string;
+        context: string;
+        authorId: string;
+        topicId: string;
+        subtopicId?: string;
+        status?: 'draft' | 'approved' | 'delivered';
+    }): Promise<Quote> {
+        const quote = new Quote({
+            id: randomUUID(),
+            quote: data.quote,
+            context: data.context,
+            authorId: data.authorId,
+            topicId: data.topicId,
+            subtopicId: data.subtopicId,
+            status: data.status,
+        });
 
-            if (
-                !data.quote ||
-                !data.context ||
-                !data.authorId ||
-                !data.topicId ||
-                !data.subTopicId ||
-                !data.status
-            ){
-                throw new Error('Quote, context, author, topic, subtopic or status cannot be null')
-            }
-
-            // Criando o objeto props com todas as variáveis juntas
-            const props = {
-                    id: quoteId,
-                    quote: quoteText,
-                    context,
-                    authorId,
-                    topicId,
-                    subtopicId,
-                    status,
-                    createdAt,
-                    updatedAt
-                }
-
-            const quote = new Quote(props) 
-
-            await this.quoteRepository.save(quote)
-
-        }
+        await this.quoteRepository.save(quote);
+        return quote;
+    }
 }

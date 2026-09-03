@@ -1,7 +1,9 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateQuoteService } from '../../application/use-cases/create-quote/create-quote.service';
 import { QuoteRepository } from '../../domain/repositories/quote.repository';
-import { CreateQuoteDto } from '../../application/dto/crete-quote-dto';
+import { CreateQuoteDto } from '../../application/dto/create-quote-dto';
+
+export { CreateQuoteDto } from '../../application/dto/create-quote-dto';
 
 @Controller('quotes')
 export class QuoteController {

@@ -1,9 +1,16 @@
 import { Module } from '@nestjs/common';
-import { ContentController } from './presentation/controllers/content/content.controller';
-import { ContentService } from './application/services/content/content.service';
+import { QuoteController } from './presentation/controllers/quote.controller';
+import { CreateQuoteService } from './application/use-cases/create-quote/create-quote.service';
+import { QuoteRepository } from './domain/repositories/quote.repository';
+import { PrismaQuoteRepository } from './infraestructure/prisma-quote.repository';
+import { PrismaModule } from '../../infrastructure/database/prisma.module';
 
 @Module({
-  controllers: [ContentController],
-  providers: [ContentService]
+  imports: [PrismaModule],
+  controllers: [QuoteController],
+  providers: [
+    CreateQuoteService,
+    { provide: QuoteRepository, useClass: PrismaQuoteRepository },
+  ],
 })
 export class ContentModule {}
