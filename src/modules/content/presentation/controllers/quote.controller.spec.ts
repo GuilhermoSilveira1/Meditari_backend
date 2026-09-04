@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CreateQuoteService } from '../../application/use-cases/create-quote/create-quote.service';
 import { QuoteRepository } from '../../domain/repositories/quote.repository';
-import { CreateQuoteDto, QuoteController } from './quote.controller';
+import { QuoteController } from './quote.controller';
+import { CreateQuoteDto } from '../../application/dto/create-quote-dto';
 
 describe('QuoteController', () => {
   let controller: QuoteController;
@@ -35,7 +36,7 @@ describe('QuoteController', () => {
       context: 'Reflection',
       authorId: 'author-1',
       topicId: 'topic-1',
-      subTopicId: 'subtopic-1',
+      subtopicId: 'subtopic-1',
       status: 'draft',
     };
 

@@ -6,9 +6,9 @@ Persistir uma Quote no banco.
 
 ## Entregas
 
-- Entidade Quote
-- Repository
-- Prisma
+- Entidade Quote - OK
+- Repository - OK
+- Prisma - OK
 - Endpoint POST /quotes
 
 ## Status
