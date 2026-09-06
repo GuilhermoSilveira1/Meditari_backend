@@ -13,4 +13,4 @@ Persistir uma Quote no banco.
 
 ## Status
 
-Em andamento
+Concluída
