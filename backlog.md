@@ -1,0 +1,1 @@
+- No quoteDelivery ele verifica se um quote está entregue ou não entregue, porém no quote ele também possui status de draft, approved ou delivered. Importante centralizar no quoteDelivery, já que ele deve controlar se o quote foi ou não entregue, ele deve verificar se o quote está como approved e então enviar, se estiver como draft não deve enviar

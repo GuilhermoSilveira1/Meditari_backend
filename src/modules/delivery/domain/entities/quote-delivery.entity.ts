@@ -1,15 +1,11 @@
 // Enum dos quote status
-export type QuoteStatus = 'draft' | 'approved' | 'delivered'
+export type QuoteDeliveryStatus = 'undelivered' | 'delivered'
 
 // Classe quote
 export class QuoteDelivery {
     private _id: string
     private _quote: string
-    private _context: string
-    private _authorId: string
-    private _topicId: string
-    private _subtopicId: string
-    private _status: QuoteStatus
+    private _status: QuoteDeliveryStatus
     private _createdAt: Date
     private _updatedAt: Date
 
@@ -18,23 +14,16 @@ export class QuoteDelivery {
     constructor(props: {
         id: string
         quote: string
-        context: string
-        authorId: string
-        topicId: string
-        subtopicId?: string
-        status?: QuoteStatus
+        status?: QuoteDeliveryStatus
         createdAt?: Date
         updatedAt?: Date
     }) 
+
     // Passando os parâmetros recebidos para os valores internos do objeto 
     {
         this._id = props.id
         this._quote = props.quote
-        this._context = props.context
-        this._authorId = props.authorId
-        this._topicId = props.topicId
-        this._subtopicId = props.subtopicId ?? 'tbd'
-        this._status = props.status ?? 'draft'
+        this._status = props.status ?? 'undelivered'
         this._createdAt = props.createdAt ?? new Date
         this._updatedAt = props.updatedAt ?? new Date
 
@@ -48,22 +37,6 @@ export class QuoteDelivery {
 
     getQuote() {
         return this._quote
-    }
-
-    getContext() {
-        return this._context
-    }
-
-    getAuthorId() {
-        return this._authorId
-    }
-
-    getTopicId() {
-        return this._topicId
-    }
-    
-    getSubtopicId() {
-        return this._subtopicId
     }
 
     getStatus() {
@@ -80,31 +53,31 @@ export class QuoteDelivery {
 
     // Regras de negócio (state machine)
     approve() {
-        if (this._status !== 'draft') {
-            throw new Error('Only draf quotes can be approved')
-        }
-
-        this._status = 'approved'
-        this.touch()
-    }
-    
-    markAsDelivered() {
-        if (this._status !== 'approved') {
-            throw new Error('Only approved quotes can be delivered')
+        if (this._status !== 'undelivered') {
+            throw new Error('Only undelivered quotes can be delivered')
         }
 
         this._status = 'delivered'
         this.touch()
     }
+    
+    markAsDelivered(quote.status) {
+        if (this._quote.status !== 'approved') {
+            throw new Error('Only approved quotes can be delivered')
+        }
+
+        this._status = 'delivered'
+        this._quote.status = this._status
+        this.touch()
+    }
 
     // Regras de modificação
-    updateContent(quote: string, context: string) {
+    updateContent(quote: string) {
         if (this._status === 'delivered') {
             throw new Error('Delivered quotes cannot be edited')
         }
 
         this._quote = quote
-        this._context = context
         this.touch()
     }
 
@@ -112,14 +85,6 @@ export class QuoteDelivery {
     private validate() {
         if (!this._quote || this._quote.length < 5) {
             throw new Error('Quote text must have at least 5 characters')
-        }
-
-        if (!this._authorId) {
-            throw new Error('Quote must have an author')
-        }
-
-        if (!this._topicId) {
-            throw new Error('Quote must have a topic')
         }
     }
 

@@ -87,8 +87,8 @@ export class Quote {
         this._status = 'approved'
         this.touch()
     }
-    
-    markAsDelivered() {
+
+    delivered() {
         if (this._status !== 'approved') {
             throw new Error('Only approved quotes can be delivered')
         }
@@ -96,11 +96,11 @@ export class Quote {
         this._status = 'delivered'
         this.touch()
     }
-
+    
     // Regras de modificação
     updateContent(quote: string, context: string) {
-        if (this._status === 'delivered') {
-            throw new Error('Delivered quotes cannot be edited')
+        if (this._status === 'approved') {
+            throw new Error('Approved quotes cannot be edited')
         }
 
         this._quote = quote
