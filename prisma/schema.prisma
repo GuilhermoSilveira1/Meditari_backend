@@ -27,7 +27,7 @@ enum AuthorStatus {
 enum QuoteStatus {
   draft
   approved
-  delivered
+  rejected
 }
 
 model Author {

@@ -43,7 +43,7 @@ export class PrismaQuoteRepository implements QuoteRepository{
         authorId: string;
         topicId: string;
         subtopicId: string;
-        status: 'draft' | 'approved' | 'delivered';
+        status: 'draft' | 'approved' | 'rejected';
         createdAt: Date;
         updatedAt: Date;
     }): Quote {

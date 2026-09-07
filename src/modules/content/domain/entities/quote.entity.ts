@@ -1,5 +1,5 @@
 // Enum dos quote status
-export type QuoteStatus = 'draft' | 'approved' | 'delivered'
+export type QuoteStatus = 'draft' | 'approved' | 'rejected'
 
 // Classe quote
 export class Quote {
@@ -81,22 +81,22 @@ export class Quote {
     // Regras de negócio (state machine)
     approve() {
         if (this._status !== 'draft') {
-            throw new Error('Only draf quotes can be approved')
+            throw new Error('Only draft quotes can be approved')
         }
 
         this._status = 'approved'
         this.touch()
     }
 
-    delivered() {
-        if (this._status !== 'approved') {
-            throw new Error('Only approved quotes can be delivered')
+    reject() {
+        if (this._status !== 'draft') {
+            throw new Error('Only draft quotes can be rejected')
         }
 
-        this._status = 'delivered'
+        this._status = 'rejected'
         this.touch()
     }
-    
+ 
     // Regras de modificação
     updateContent(quote: string, context: string) {
         if (this._status === 'approved') {
