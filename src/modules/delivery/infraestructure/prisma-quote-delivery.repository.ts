@@ -10,6 +10,15 @@ export class PrismaQuoteDeliveryRepository implements QuoteDeliveryRepository {
     ){}
 
     async save(quote: QuoteDelivery): Promise<void> {
-        
+        await this.prisma.quoteDelivery.create({
+            data: {
+                id: quote.getId(),
+                quoteId: quote.getQuoteId(),
+                status: quote.getStatus(),
+                createdAt: quote.getCreatedAt(),
+                deliveredAt: quote.getDeliveredAt(),
+                updatedAt: quote.getUpdatedAt(),
+            },
+        });
     }
 }

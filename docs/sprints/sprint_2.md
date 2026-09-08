@@ -18,4 +18,4 @@ GET /daily-quote
 
 ## Status
 
-Em andamento
+Concluída

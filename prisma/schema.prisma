@@ -7,6 +7,12 @@ datasource db {
   provider = "postgresql"
 }
 
+enum QuoteStatus {
+  draft
+  approved
+  rejected
+}
+
 model Quote {
   id         String   @id
   quote      String
@@ -19,15 +25,23 @@ model Quote {
   updatedAt  DateTime @updatedAt
 }
 
+enum QuoteDeliveryStatus {
+  undelivered
+  delivered
+}
+
+model QuoteDelivery {
+  id          String @id
+  quoteId     String
+  status      QuoteDeliveryStatus
+  createdAt   DateTime
+  deliveredAt DateTime
+  updatedAt   DateTime
+}
+
 enum AuthorStatus {
   research
   complete
-}
-
-enum QuoteStatus {
-  draft
-  approved
-  rejected
 }
 
 model Author {
