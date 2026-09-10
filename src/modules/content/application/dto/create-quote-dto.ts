@@ -23,6 +23,6 @@ export class CreateQuoteDto {
   subtopicId?: string;
 
   @IsOptional()
-  @IsIn(['draft', 'approved', 'delivered'])
+  @IsIn(['draft', 'approved', 'rejected'])
   status?: QuoteStatus;
 }

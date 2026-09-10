@@ -1,4 +1,4 @@
-# Sprint 01
+# Sprint 02
 
 ## Objetivo
 
@@ -18,4 +18,4 @@ GET /daily-quote
 
 ## Status
 
-Em andamento
+Concluída

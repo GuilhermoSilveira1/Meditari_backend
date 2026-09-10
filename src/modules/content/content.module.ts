@@ -12,5 +12,6 @@ import { PrismaModule } from '../../infrastructure/database/prisma.module';
     CreateQuoteService,
     { provide: QuoteRepository, useClass: PrismaQuoteRepository },
   ],
+  exports: [QuoteRepository],
 })
 export class ContentModule {}

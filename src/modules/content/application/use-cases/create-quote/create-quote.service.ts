@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Quote } from '../../../domain/entities/quote.entity';
 import { QuoteRepository } from '../../../domain/repositories/quote.repository';
 import { randomUUID } from 'node:crypto';
+import { QuoteStatus } from '../../../domain/entities/quote.entity';
 
 // Enums do status
 @Injectable()
@@ -16,7 +17,7 @@ export class CreateQuoteService {
         authorId: string;
         topicId: string;
         subtopicId?: string;
-        status?: 'draft' | 'approved' | 'delivered';
+        status?: QuoteStatus;
     }): Promise<Quote> {
         const quote = new Quote({
             id: randomUUID(),

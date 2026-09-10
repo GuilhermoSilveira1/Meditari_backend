@@ -9,6 +9,8 @@ export abstract class QuoteRepository {
       topicId: string,
   ): Promise<Quote[]>;
 
+  abstract findApproved(topicId?: string): Promise<Quote[]>;
+
   abstract save(
       quote: Quote,
   ): Promise<void>;

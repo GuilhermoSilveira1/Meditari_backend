@@ -1,4 +1,4 @@
-# ADR-005
+# ADR-006
 
 Data: 2026-09-06
 
@@ -9,7 +9,7 @@ Motivo:
 Criar um padrão de desenvolvimento de módulos
 
 modulo/
-├── application/     ← use cases
+├── application/     ← use cases, dtos
 ├── domain/          ← entidades
 ├── infrastructure/  ← prisma, db
 ├── presentation/    ← controller

@@ -19,6 +19,17 @@ export class PrismaQuoteRepository implements QuoteRepository{
         return quotes.map((quote) => this.toEntity(quote));
     }
 
+    async findApproved(topicId?: string): Promise<Quote[]> {
+        const quotes = await this.prisma.quote.findMany({
+            where: {
+                status: 'approved',
+                ...(topicId ? { topicId } : {}),
+            },
+        });
+
+        return quotes.map((quote) => this.toEntity(quote));
+    }
+
     // Function responsible for saving a new quote on the database
     async save(quote: Quote): Promise<void> {
         await this.prisma.quote.create({
@@ -43,7 +54,7 @@ export class PrismaQuoteRepository implements QuoteRepository{
         authorId: string;
         topicId: string;
         subtopicId: string;
-        status: 'draft' | 'approved' | 'delivered';
+        status: 'draft' | 'approved' | 'rejected';
         createdAt: Date;
         updatedAt: Date;
     }): Quote {
