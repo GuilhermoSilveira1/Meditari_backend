@@ -14,12 +14,12 @@ Fornecer uma frase diária contextualizada para o usuário, com base em seus int
 
 # 🧰 Stack Tecnológica
 
-- **Backend:** NestJS (Node.js + TypeScript)
+- **Backend:** FastAPI (Python)
 - **Banco de Dados:** PostgreSQL
 - **ORM:** Prisma (ou TypeORM)
 - **Documentação de API:** Swagger (OpenAPI)
-- **Validação:** class-validator
-- **Testes:** Jest
+- **Validação:** Pydantic
+- **Testes:** Pytest
 
 ---
 
@@ -205,8 +205,8 @@ Planejado:
 
 # 📘 Próximos Passos
 
-- Implementar estrutura base com NestJS
-- Configurar Prisma + PostgreSQL
+- Implementar estrutura base com FastAPI
+- Configurar persistência PostgreSQL e migrations
 - Implementar módulo Content
 - Implementar endpoint /daily-quote
 - Configurar Swagger (OpenAPI)
