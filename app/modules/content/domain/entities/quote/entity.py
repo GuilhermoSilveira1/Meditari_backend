@@ -13,8 +13,7 @@ class QuoteStatus(StrEnum):
 @dataclass(slots=True)
 class Quote:
     text: str
-    context: str | None = None
-    author_name: str | None = None
+    author_id: str| None = None
     topic: str | None = None
     status: QuoteStatus = QuoteStatus.DRAFT
     id: UUID = field(default_factory=uuid4)

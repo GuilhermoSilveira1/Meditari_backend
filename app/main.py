@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-
 from app.core.config import settings
 from app.modules.content.presentation.routes.quotes import router as quotes_router
 

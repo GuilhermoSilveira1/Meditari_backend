@@ -10,3 +10,5 @@ NestJs possui todas as ferramentas necessárias para o projeto em um pacote, com
 
 Consequência:
 Maior complexidade de desenvolvimento se comparado ao Node.js + Express
+
+Substituído pelo ADR-007
