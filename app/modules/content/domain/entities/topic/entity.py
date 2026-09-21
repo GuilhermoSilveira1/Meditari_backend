@@ -14,3 +14,16 @@ class Topic:
         self.name = self.name.strip()
         if not self.name:
             raise ValueError("Topic name must not be empty")
+
+
+    def rename(self, name: str):
+        if not name:
+            raise ValueError("Topic name must not be empty")
+
+        self.name = name
+        self.update()
+
+
+    def update(self):
+        self.updated_at = datetime.now(timezone.utc)
+

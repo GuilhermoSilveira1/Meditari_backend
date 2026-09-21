@@ -7,7 +7,6 @@ from uuid import UUID, uuid4
 class QuoteStatus(StrEnum):
     DRAFT = "draft"
     APPROVED = "approved"
-    DELIVERED = "delivered"
 
 
 @dataclass(slots=True)
@@ -18,6 +17,7 @@ class Quote:
     status: QuoteStatus = QuoteStatus.DRAFT
     id: UUID = field(default_factory=uuid4)
     created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
     def __post_init__(self) -> None:
         self.text = self.text.strip()
@@ -27,4 +27,18 @@ class Quote:
             self.topic = self.topic.strip().lower()
 
     def approve(self) -> None:
+        if self.status == "approved":
+            raise ValueError("Approved quotes cannot be approved again")
+
         self.status = QuoteStatus.APPROVED
+        self.update()
+
+
+    # Function responsible for checking if a quote can be delivered 
+    def is_deliverable(self):
+        if self.status != "approved":
+            raise ValueError("Only approved quotes can be delivered")
+
+
+    def update(self):
+        self.updated_at = datetime.now(timezone.utc)

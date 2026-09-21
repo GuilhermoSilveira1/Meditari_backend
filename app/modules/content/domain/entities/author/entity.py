@@ -18,6 +18,18 @@ class Author:
         if not self.name:
             raise ValueError("author name must not be empty")
         if not self.biography:
-            raise ValueError("author context must not be empty")
+            raise ValueError("author biography must not be empty")
         if self.biography.__len__() < 5:
-            raise ValueError("author context must have more than 5 letters")
+            raise ValueError("author biography must have more than 5 letters")
+
+
+    def update_biography(self, biography: str):
+        if not biography:
+            raise ValueError("Biography must not be empty")
+
+        self.biography = biography
+        self.update()
+
+
+    def update(self):
+        self.updated_at = datetime.now(timezone.utc)
