@@ -3,7 +3,7 @@ Quote
 - id
 - text
 - context
-- author_id (FK)
+- author_id (FK, nullable)
 - topic_id (FK)
 - status (draft | approved | delivered)
 - createdAt
@@ -13,8 +13,9 @@ Author
 
 - id
 - name
-- birth_year
-- death_year
+- biography (nullable)
+- birth_year (nullable)
+- death_year (nullable)
 
 Topic
 
