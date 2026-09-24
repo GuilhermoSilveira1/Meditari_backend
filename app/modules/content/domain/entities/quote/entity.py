@@ -26,6 +26,8 @@ class Quote:
         if self.topic is not None:
             self.topic = self.topic.strip().lower()
 
+
+    # Function responsible for checking if a quote can be approved
     def approve(self) -> None:
         if self.status == "approved":
             raise ValueError("Approved quotes cannot be approved again")
