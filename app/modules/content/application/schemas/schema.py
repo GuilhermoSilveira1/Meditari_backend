@@ -23,3 +23,12 @@ class QuoteResponse(BaseModel):
 	topic: str | None
 	status: QuoteStatus
 	created_at: datetime
+
+
+class CreateTopicRequest(BaseModel):
+    name: str = Field(min_length=1)
+
+
+class TopicResponse(BaseModel):
+    id: UUID
+    name: str
