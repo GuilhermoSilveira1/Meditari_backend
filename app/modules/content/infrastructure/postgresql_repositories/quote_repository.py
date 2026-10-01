@@ -1,9 +1,9 @@
 from uuid import UUID
 
 from app.modules.content.domain.entities.quote.entity import Quote
-from app.modules.content.domain.repositories.quote.repository import QuoteRepository
+from app.modules.content.domain.contracts.quote.repository import QuoteRepository
 
-class InMemoryQuoteRepository(QuoteRepository):
+class PostgreQuoteRepository(QuoteRepository):
     def __init__(self) -> None:
         self._quotes: dict[UUID, Quote] = {}
 

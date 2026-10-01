@@ -1,6 +1,6 @@
 from app.modules.content.application.schemas.schema import CreateQuoteRequest
 from app.modules.content.domain.entities.quote.entity import Quote
-from app.modules.content.domain.repositories.quote.repository import QuoteRepository
+from app.modules.content.domain.contracts.quote.repository import QuoteRepository
 
 
 class CreateQuoteUseCase:
@@ -10,8 +10,7 @@ class CreateQuoteUseCase:
     def execute(self, request: CreateQuoteRequest) -> Quote:
         quote = Quote(
             text=request.text,
-            context=request.context,
-            author_name=request.author_name,
-            topic=request.topic,
+            author_id=request.author_id,
+            topic_id=request.topic_id,
         )
         return self.repository.save(quote)
