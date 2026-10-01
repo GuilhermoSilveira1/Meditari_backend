@@ -8,9 +8,8 @@ from app.modules.content.domain.entities.quote.entity import QuoteStatus
 
 class CreateQuoteRequest(BaseModel):
 	text: str = Field(min_length=1)
-	context: str | None = None
-	author_name: str | None = None
-	topic: str | None = None
+	author_id: UUID | None = None
+	topic_id: UUID | None = None
 
 
 class QuoteResponse(BaseModel):
@@ -18,11 +17,17 @@ class QuoteResponse(BaseModel):
 
 	id: UUID
 	text: str
-	context: str | None
-	author_name: str | None
-	topic: str | None
+	author_id: UUID | None
+	topic_id: UUID | None
 	status: QuoteStatus
 	created_at: datetime
+
+
+class CreateAuthorRequest(BaseModel):
+	name: str = "unknown"
+	biography: str | None = None
+	birthdate: datetime | None = None
+	deathdate: datetime | None = None
 
 
 class CreateTopicRequest(BaseModel):

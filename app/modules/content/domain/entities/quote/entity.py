@@ -12,8 +12,8 @@ class QuoteStatus(StrEnum):
 @dataclass(slots=True)
 class Quote:
     text: str
-    author_id: str| None = None
-    topic: str | None = None
+    author_id: UUID| None = None
+    topic_id: UUID | None = None
     status: QuoteStatus = QuoteStatus.DRAFT
     id: UUID = field(default_factory=uuid4)
     created_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
@@ -23,8 +23,6 @@ class Quote:
         self.text = self.text.strip()
         if not self.text:
             raise ValueError("quote text must not be empty")
-        if self.topic is not None:
-            self.topic = self.topic.strip().lower()
 
     def approve(self) -> None:
         if self.status == "approved":

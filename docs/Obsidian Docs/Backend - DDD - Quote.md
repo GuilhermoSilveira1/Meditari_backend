@@ -7,11 +7,11 @@ Estrutura
 - context
 - author_id (FK, opcional)
 - topic_id (FK)
-- subtopic_id (FK)
-- status (draft | approved | delivered)
+- status (draft | approved)
 - createdAt
 - updatedAt
 
 Regras
 - Uma quote pode existir sem autor conhecido.
 - Quando o autor não existir ou for removido, `author_id` deve permanecer `null` na representação da quote.
+- Status não possui "Delivered", isso será controlado no bounded context "Delivery"

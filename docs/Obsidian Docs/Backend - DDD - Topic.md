@@ -5,4 +5,5 @@ Representado pelo nome do tópico, e composto pelos subtópicos filhos.
 Estrutura
 - id
 - name
-- subtopic
+- createdAt
+- updatedAt

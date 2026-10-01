@@ -11,10 +11,14 @@
             "id": "be1823bf789349f3",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Visualização em gráfico"
+              "type": "markdown",
+              "state": {
+                "file": "Backend.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Backend"
             }
           }
         ]
@@ -186,31 +190,31 @@
   },
   "active": "be1823bf789349f3",
   "lastOpenFiles": [
+    "Backend - DDD.md",
+    "Backend - DDD - Topic.md",
+    "Backend - DDD - Quote.md",
+    "Backend - DDD - Author.md",
     "Backend.md",
+    "Backend - ADRs.md",
+    "ADRs",
+    "ADRs/ADR-019 - Fluxo de trabalho por sprints branches e ADRs.md",
+    "README - Indice dos ADRs.md",
+    "ADRs/ADR-006 - Organização das camadas.md",
+    "ADRs/ADR-005 - Clean Code.md",
+    "ADRs/ADR-018 - Repositorios separados por aplicacao.md",
+    "ADRs/ADR-003 - Sem autenticação no MVP.md",
+    "ADRs/ADR-002 - Uso de UUID.md",
+    "ADRs/ADR-001 - Escolha do NestJS.md",
+    "Backend - Regras de Negócio.md",
+    "Backend - Tech Stack.md",
+    "Backend - Visão Geral.md",
+    "Backend - Backlog.md",
+    "Backend - DDD - Controle de repetição.md",
     "Meditari.md",
     "Backend - DDD - QuoteDelivery.md",
-    "Backend - DDD.md",
-    "Backend - Regras de Negócio.md",
     "Backend - DDD - Distribuição diária.md",
-    "Backend - DDD - Controle de repetição.md",
     "Backend - DDD - Seleção da frase.md",
-    "Backend - DDD - Quote.md",
     "Backend - DDD - Subtopic.md",
-    "Backend - DDD - Context.md",
-    "Backend - DDD - Topic.md",
-    "Backend - DDD - Author.md",
-    "Backend - DD - Quote.md",
-    "Backend - Versões.md",
-    "Backend - MVP.md",
-    "Backend - Backlog.md",
-    "Backend - Testes.md",
-    "Backend - API.md",
-    "Backend - Banco de Dados.md",
-    "Backend - Arquitetura.md",
-    "Backend - ADRs.md",
-    "ADR-003 - Modelagem.md",
-    "ADR-002 - Arquitetura.md",
-    "ADR-001 - Tech Stack.md",
-    "Backend - DDD - Bounded Context.md"
+    "Backend - DDD - Context.md"
   ]
 }

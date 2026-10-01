@@ -1,6 +1,6 @@
-**Backend:** NestJS (Node.js + TypeScript)
+**Backend:** FastAPI (Python)
 **Banco de Dados:** PostgreSQL
-**ORM:** Prisma (ou TypeORM)
+**ORM:** 
 **Documentação de API:** Swagger (OpenAPI)
 **Validação:** class-validator
-**Testes:** Jest
+**Testes:** Pytest

@@ -1,4 +1,4 @@
-[] Content - Alinhar o contrato de criacao de Quote: decidir se a requisicao recebe `author_id` ou `author_name` e ajustar schema e entidade para refletirem o modelo documentado.
+[x] Content - Alinhar o contrato de criacao de Quote: decidir se a requisicao recebe `author_id` ou `author_name` e ajustar schema e entidade para refletirem o modelo documentado.
 [] Content - Corrigir o `CreateQuoteUseCase` para construir uma `Quote` compativel com o contrato do dominio e persistir o resultado pelo `QuoteRepository`.
 [] Content - Fechar e validar a rota `POST /api/v1/quotes`: corrigir a definicao FastAPI, configurar o `response_model`, retornar `201` e cobrir o fluxo com teste de API usando o repositorio em memoria.
 [] No `QuoteDelivery`, verificar se o `Quote` pode ser entregue: somente quotes com status `approved` devem ser enviados. A entrega deve ser registrada por usuario no `QuoteDelivery`, e nao como status global `delivered` em `Quote`, pois o mesmo quote pode ser entregue a usuarios diferentes.
