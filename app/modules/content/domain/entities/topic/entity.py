@@ -11,12 +11,13 @@ class Topic:
     id: UUID = field(default_factory=uuid4)
 
     def __post_init__(self) -> None:
-        self.name = self.name.strip()
+        self.name = self.name.strip().lower()
         if not self.name:
             raise ValueError("Topic name must not be empty")
 
 
     def rename(self, name: str):
+        name = name.strip().lower()
         if not name:
             raise ValueError("Topic name must not be empty")
 
