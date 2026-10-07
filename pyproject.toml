@@ -18,3 +18,8 @@ dev = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+markers = [
+    "unit: testes isolados de entidades e funções",
+    "integration: testes entre componentes",
+    "e2e: testes completos da aplicação",
+]

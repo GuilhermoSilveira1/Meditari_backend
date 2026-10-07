@@ -24,7 +24,7 @@ class QuoteResponse(BaseModel):
 
 
 class CreateAuthorRequest(BaseModel):
-	name: str = "unknown"
+	name: str
 	biography: str | None = None
 	birthdate: datetime | None = None
 	deathdate: datetime | None = None

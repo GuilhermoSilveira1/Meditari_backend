@@ -5,7 +5,7 @@ from uuid import UUID, uuid4
 
 @dataclass(slots=True)
 class Author:
-    name: str = "unknown"
+    name: str
     biography: str | None = None
     birthdate: datetime | None = None
     deathdate: datetime | None = None
@@ -15,7 +15,11 @@ class Author:
 
 
     def __post_init__(self) -> None:
-        self.name = self.name.strip() or "unknown"
+        self.name = self.name.strip().lower()
+        if not self.name:
+            raise ValueError("Author name must not be empty")
+        if self.name == "unknown":
+            raise ValueError("Author must have a name different than 'Unknown'")
 
 
     def update_biography(self, biography: str):
