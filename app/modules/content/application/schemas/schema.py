@@ -1,15 +1,25 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from app.modules.content.domain.entities.quote.entity import QuoteStatus
 
 
 class CreateQuoteRequest(BaseModel):
-	text: str = Field(min_length=1)
-	author_id: UUID | None = None
-	topic_id: UUID | None = None
+    text: str = Field(min_length=1)
+    author_id: UUID | None = None
+    topic_id: UUID | None = None
+
+    @field_validator("text")
+    @classmethod
+    def normalize_text(cls, value: str) -> str:
+        normalized = value.strip().lower()
+
+        if not normalized:
+            raise ValueError("quote text must not be empty")
+
+        return normalized
 
 
 class QuoteResponse(BaseModel):

@@ -10,7 +10,7 @@ def test_quote_is_created_with_uuid_and_draft_status() -> None:
     quote = Quote(text="Uma frase qualquer")
 
     assert quote.id is not None
-    assert quote.text == "Uma frase qualquer"
+    assert quote.text == "uma frase qualquer"
 
 
 @pytest.mark.unit
@@ -21,9 +21,9 @@ def test_quote_rejects_empty_text() -> None:
 
 @pytest.mark.unit
 def test_quote_does_not_approve_twice() -> None:
-    quote = Quote(text="  Uma frase.  ")
+    quote = Quote(text="  Uma FRASE.  ")
 
-    assert quote.text == "Uma frase."
+    assert quote.text == "uma frase."
     assert quote.status is QuoteStatus.DRAFT
     assert quote.id is not None
 
@@ -37,7 +37,7 @@ def test_quote_does_not_approve_twice() -> None:
 def test_quote_update_date() -> None:
     quote = Quote(text="  Uma frase.  ")
 
-    assert quote.text == "Uma frase."
+    assert quote.text == "uma frase."
     assert quote.status is QuoteStatus.DRAFT
     assert quote.id is not None
 

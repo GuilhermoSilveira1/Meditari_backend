@@ -20,7 +20,7 @@ class Quote:
     updated_at: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
     def __post_init__(self) -> None:
-        self.text = self.text.strip()
+        self.text = self.text.strip().lower()
         if not self.text:
             raise ValueError("quote text must not be empty")
 
