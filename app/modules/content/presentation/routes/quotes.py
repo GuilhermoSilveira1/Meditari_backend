@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 from app.modules.content.application.schemas.schema import CreateQuoteRequest, QuoteResponse
 from app.modules.content.application.use_cases.create_quote import CreateQuoteUseCase
@@ -16,5 +16,9 @@ create_quote = CreateQuoteUseCase(quote_repository)
     status_code=201,
 )
 def create_quote_endpoint(data: CreateQuoteRequest):
-    quote = create_quote.execute(data)
+    try:
+        quote = create_quote.execute(data)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from error
+
     return quote
