@@ -6,7 +6,7 @@
 
 [] Content - Escrever e executar testes para as entidades, casos de uso e repository de `Quote`, alem de testar o fluxo completo da rota de criacao.
 
-[] No `QuoteDelivery`, verificar se o `Quote` pode ser entregue: somente quotes com status `approved` devem ser enviados. A entrega deve ser registrada por usuario no `QuoteDelivery`, e nao como status global `delivered` em `Quote`, pois o mesmo quote pode ser entregue a usuarios diferentes.
+[x] No `QuoteDelivery`, verificar se o `Quote` pode ser entregue: somente quotes com status `approved` devem ser enviados. A entrega deve ser registrada por usuario no `QuoteDelivery`, e nao como status global `delivered` em `Quote`, pois o mesmo quote pode ser entregue a usuarios diferentes.
 
 [] Ao implementar `QuoteDelivery`, decidir se a entrega consulta os dados atuais de `Author`/`Quote` ou preserva um snapshot imutavel exatamente do conteudo exibido ao usuario. Avaliar especialmente mudancas futuras na biografia do autor.
 
