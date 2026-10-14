@@ -4,7 +4,13 @@
 
 [x] Content - Fechar e validar a rota `POST /api/v1/quotes`: corrigir a definicao FastAPI, configurar o `response_model`, retornar `201`.
 
-[] Content - Escrever e executar testes para as entidades, casos de uso e repository de `Quote`, alem de testar o fluxo completo da rota de criacao.
+[x] Content - Escrever e executar testes unitarios para as entidades, schemas, casos de uso, repositories e controller de `Quote`.
+
+[] Content - Criar testes de integracao para o caminho feliz de `POST /api/v1/quotes`, incluindo status `201`, normalizacao do texto e status `draft`.
+
+[] Content - Criar testes de integracao para entradas invalidas de `POST /api/v1/quotes`, incluindo texto ausente, texto vazio e UUIDs invalidos.
+
+[] Content - Validar no teste de integracao o contrato completo de resposta de `POST /api/v1/quotes`, incluindo UUID, timestamps, status e campos opcionais.
 
 [x] No `QuoteDelivery`, verificar se o `Quote` pode ser entregue: somente quotes com status `approved` devem ser enviados. A entrega deve ser registrada por usuario no `QuoteDelivery`, e nao como status global `delivered` em `Quote`, pois o mesmo quote pode ser entregue a usuarios diferentes.
 
